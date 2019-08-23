@@ -1,0 +1,2 @@
+# delikus
+learning_python
