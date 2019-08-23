@@ -1,0 +1,30 @@
+import os
+import argparse
+import pandas as pd
+
+parser = argparse.ArgumentParser()
+parser.add_argument('file' , help = "this is the file you want to open")
+parser.add_argument('save_file_name' , help = "the name of the file you want for the  output CSV")
+
+args = parser.parse_args()
+print("file name:" , args.file)
+
+
+
+with open(args.file , 'r') as word:
+    #print(word.readlines())  ###here is where i was making sure it read in properly
+
+###here is where I will start to manipulate the data
+
+	raw_data = word
+	raw_data = [string.replace('\n', '') for string in raw_data]
+
+	data = [raw_data[x:x+7] for x in range(0, len(raw_data),7)]
+
+	df = pd.DataFrame(data[1:], columns=data[0])
+	print(df.to_string())
+
+###export csv
+	path = os.getcwd()
+	export_path = path + args.save_file_name + '.csv'
+	export_csv = df.to_csv(path_or_buf=export_path , header=False , index=False) #Don't forget to add '.csv' at the end of the path
