@@ -33,8 +33,8 @@ headers = {
 }
 
 auth = (
-    'moe@hotpepper.deepgram.com',
-    'makati2019!1'
+    '*****@hotpepper.deepgram.com',
+    '*********'
 )
 lvl = args.level
 
